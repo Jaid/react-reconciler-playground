@@ -4,20 +4,24 @@
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "debug": "^4.1.1"
+    "classnames": "^2.2.6",
+    "debug": "^4.1.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
   "devDependencies": {
     "ajv": "^6.10.0",
     "babel-jest": "^24.5.0",
     "babel-plugin-pkg": "^1.0.1",
     "babel-preset-jaid": "^5.5.0",
-    "caniuse-lite": "^1.0.30000946",
+    "caniuse-lite": "^1.0.30000947",
     "eslint": "^5.15.1",
-    "eslint-config-jaid": "^1.12.0",
+    "eslint-config-jaid-react": "^1.12.0",
     "jest": "^24.5.0",
     "opn-cli": "^4.0.0",
+    "react-hot-loader": "^4.8.0",
     "rimraf": "^2.6.3",
-    "webpack-config-jaid": "^3.3.0"
+    "webpack-config-jaid": "^3.4.2"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",

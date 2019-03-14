@@ -1,6 +1,5 @@
-import {configureUniversalLib} from "webpack-config-jaid"
+import {configureWebapp} from "webpack-config-jaid"
 
-export default configureUniversalLib({
-  documentation: true,
+export default configureWebapp({
   publishimo: {fetchGithub: true},
 })
