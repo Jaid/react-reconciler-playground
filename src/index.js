@@ -8,12 +8,11 @@ import {createStore, history} from "./redux/store"
 
 const store = createStore({})
 
-const reactRoot = document.createElement("div")
-document.body.append(reactRoot)
+const rootNode = document.createElement("div")
+document.body.append(rootNode)
 
 ReactDom.render(<Provider store={store}>
   <ConnectedRouter history={history}>
     <App/>
   </ConnectedRouter>
-</Provider>,
-reactRoot)
+</Provider>, rootNode)
