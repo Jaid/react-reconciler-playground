@@ -21,7 +21,7 @@
     "opn-cli": "^4.0.0",
     "react-hot-loader": "^4.8.0",
     "rimraf": "^2.6.3",
-    "webpack-config-jaid": "^3.4.3"
+    "webpack-config-jaid": "^3.5.0"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
