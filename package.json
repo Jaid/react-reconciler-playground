@@ -7,7 +7,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^6.3.2",
     "debug": "^4.1.1",
-    "history": "^4.7.2",
+    "history": "^4.9.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
@@ -22,7 +22,7 @@
     "babel-plugin-pkg": "^1.0.1",
     "babel-preset-jaid": "^5.5.0",
     "caniuse-lite": "^1.0.30000948",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.2",
     "eslint-config-jaid-react": "^1.12.0",
     "jest": "^24.5.0",
     "opn-cli": "^4.0.0",
@@ -30,7 +30,7 @@
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.3",
     "wait-for-localhost-cli": "^1.1.0",
-    "webpack-config-jaid": "^3.6.2"
+    "webpack-config-jaid": "^3.6.3"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
