@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 
-export default class App extends React.Component {
+class App extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -10,8 +10,10 @@ export default class App extends React.Component {
 
   render() {
     return <div className={classnames(this.props.className)}>
-      Apparfaaa
+      App
     </div>
   }
 
 }
+
+export default process.env.NODE_ENV === "development" ? require("react-hot-loader").hot(module)(App) : App
