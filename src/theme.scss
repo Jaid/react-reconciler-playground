@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700|Rubik:400,700&subset=cyrillic,hebrew,latin-ext");
+$bodyBackground: #36393F;
+$textColor: #DCDDDE;
+$fontFamily: Rubik, sans-serif;
+$monospaceFamily: IBM Plex Mono, monospace;
+$primaryColor: hsl(255, 75%, 65%);
+%contrastText {
+  color: white;
+  text-shadow: 0 0 2px black, 0 0 5px #00000077;
+}

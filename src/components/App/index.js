@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 
+import css from "./style.scss"
+
 export default class App extends React.Component {
 
   static propTypes = {
@@ -9,7 +11,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <div className={classnames(this.props.className)}>
+    return <div className={classnames(css.container, this.props.className)}>
       App
     </div>
   }
