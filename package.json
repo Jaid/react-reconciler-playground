@@ -34,7 +34,7 @@
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.3",
     "wait-for-localhost-cli": "^1.1.0",
-    "webpack-config-jaid": "^3.8.0"
+    "webpack-config-jaid": "^3.9.0"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
