@@ -12,7 +12,7 @@ export default class SideBar extends React.Component {
 
   render() {
     return <div className={classnames(css.container, this.props.className)}>
-      SideBar
+      <div className={css.title}>{_PKG_NAME}</div>
     </div>
   }
 

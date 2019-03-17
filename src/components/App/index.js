@@ -5,6 +5,7 @@ import ReactSplitterLayout from "react-splitter-layout"
 import Uniscope from "uniscope"
 import pify from "pify"
 import Sidebar from "components/Sidebar"
+import HostConfigEditor from "components/HostConfigEditor"
 
 import "./reactSplitterLayout.scss"
 import css from "./style.scss"
@@ -18,11 +19,11 @@ export default class App extends React.Component {
   render() {
     const minSizePercent = 10
     return <div className={classnames(css.container, this.props.className)}>
-      <ReactSplitterLayout primaryIndex={1} primaryMinSize={30} secondaryInitialSize={150}>
+      <ReactSplitterLayout primaryIndex={1} primaryMinSize={200} secondaryInitialSize={150}>
         <Sidebar/>
         <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={30}>
           <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-            <div>1: hostConfig</div>
+            <HostConfigEditor/>
             <div>2: rendering</div>
           </ReactSplitterLayout>
           <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
