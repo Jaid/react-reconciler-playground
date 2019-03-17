@@ -4,10 +4,12 @@
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "@babel/standalone": "^7.3.4",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.3.2",
     "debug": "^4.1.1",
     "history": "^4.9.0",
+    "monaco-editor": "^0.16.1",
     "pify": "^4.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -17,6 +19,7 @@
     "react-splitter-layout": "^4.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "sval": "^0.2.4",
     "uniscope": "^1.1.2"
   },
   "devDependencies": {
@@ -34,7 +37,7 @@
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.3",
     "wait-for-localhost-cli": "^1.1.0",
-    "webpack-config-jaid": "^3.10.1"
+    "webpack-config-jaid": "^3.11.0"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
