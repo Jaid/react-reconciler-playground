@@ -2,15 +2,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import ReactMonacoEditor from "react-monaco-editor"
+import {connect} from "react-redux"
+import {processHostConfig} from "actions"
 
-import defaultValue from "!raw-loader!./defaultValue"
 
 import css from "./style.scss"
 
-export default class HostConfigEditor extends React.Component {
+class HostConfigEditor extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+    handleChange: PropTypes.func.isRequired,
   }
 
   render() {
@@ -19,7 +21,13 @@ export default class HostConfigEditor extends React.Component {
       fontLigatures: true,
       fontFamily: "FiraCode",
     }
-    return <ReactMonacoEditor className={classnames(css.container, this.props.className)} theme="vs-dark" options={monacoOptions} defaultValue={defaultValue}/>
+    return <ReactMonacoEditor onChange={this.props.handleChange} className={classnames(css.container, this.props.className)} theme="vs-dark" options={monacoOptions} defaultValue={defaultValue}/>
   }
 
 }
+
+const mapDispatchToProps = {
+  handleChange: processHostConfig,
+}
+
+export default connect(null, mapDispatchToProps)(HostConfigEditor)

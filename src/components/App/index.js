@@ -2,18 +2,20 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import ReactSplitterLayout from "react-splitter-layout"
-import Uniscope from "uniscope"
-import pify from "pify"
+import {connect} from "react-redux"
 import Sidebar from "components/Sidebar"
-import HostConfigEditor from "components/HostConfigEditor"
+import BabelCodeEditor from "components/BabelCodeEditor"
 
 import "./reactSplitterLayout.scss"
 import css from "./style.scss"
 
-export default class App extends React.Component {
+import defaultHostConfig from "!raw-loader!./defaultHostConfig"
+
+class App extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+    hostConfigCode: PropTypes.string.isRequired,
   }
 
   render() {
@@ -23,7 +25,7 @@ export default class App extends React.Component {
         <Sidebar/>
         <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={30}>
           <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-            <HostConfigEditor/>
+            <BabelCodeEditor name="hostConfig.js" value={this.props.hostConfigCode} defaultValue={defaultHostConfig}/>
             <div>2: rendering</div>
           </ReactSplitterLayout>
           <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
@@ -36,3 +38,11 @@ export default class App extends React.Component {
   }
 
 }
+
+const mapStateToProps = state => {
+  return {
+    hostConfigCode: state.hostConfigCode,
+  }
+}
+
+export default connect(mapStateToProps)(App)

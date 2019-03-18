@@ -1,0 +1,40 @@
+@import "theme";
+
+:global {
+  .react-tabs {
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    &__tab-list {
+      border-bottom: 1px solid #aaa;
+      padding: 0;
+      margin:0;
+    }
+    &__tab {
+      color: darken($textColor, 30);
+      display: inline-block;
+      border: 1px solid transparent;
+      border-bottom: none;
+      position: relative;
+      list-style: none;
+      padding: 2px 12px;
+      cursor: pointer;
+      &--selected {
+        background: $bodyBackground;
+        border-color: #aaa;
+        color: $textColor;
+        &:first-child {
+          border-left-color: transparent;
+        }
+      }
+      &--disabled {
+        cursor: default;
+      }
+    }
+    &__tab-panel {
+      display: none;
+      &--selected {
+        display: block;
+      }
+    }
+  }
+}

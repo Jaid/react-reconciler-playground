@@ -13,5 +13,8 @@ export default configureWebapp({
         theme$: path.resolve(__dirname, "src", "theme.scss"),
       },
     },
+    node: {
+      fs: "empty",
+    },
   },
 })

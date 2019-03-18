@@ -1,12 +1,3 @@
-import Readme from "components/Readme"
-import Text from "components/Text"
-import Section from "components/Section"
-import Foundation from "components/Foundation"
-import Header from "components/Header"
-import Span from "components/Span"
-import {noop, isObject} from "lodash"
-import isStringArray from "validate.io-string-array"
-
 const debug = require("debug")(_PKG_NAME)
 
 const append = (parent, child) => {
