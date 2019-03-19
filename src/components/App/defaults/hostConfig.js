@@ -1,25 +1,16 @@
-const debug = require("debug")(_PKG_NAME)
+class Root {
 
-const append = (parent, child) => {
-  if (isObject(child)) {
-    child.parent = parent
-    child.depth = parent.depth + 1
+  render() {
+    return "abc"
   }
-  if (parent.append) {
-    parent.append(child)
-  } else {
-    debug(`${parent?.name || parent?.displayName || parent?.__proto__?.constructor?.name}.append ? :/`)
-  }
+
 }
+
+const noop = () => {}
 
 const getComponentByType = type => {
   return {
-    root: Readme,
-    text: Text,
-    section: Section,
-    foundation: Foundation,
-    header: Header,
-    span: Span,
+    root: Root,
   }[type]
 }
 
@@ -62,14 +53,14 @@ export const createInstance = (type, props, rootContainer, hostContext, fiber) =
 }
 
 export const createTextInstance = text => {
-  return createInstance("text", {text}, 0)
+  return text
 }
 
 export const prepareForCommit = noop
 
 export const resetAfterCommit = noop
 
-export const appendInitialChild = append
+export const appendInitialChild = noop
 
 export const finalizeInitialChildren = () => {
   return false
@@ -85,7 +76,7 @@ export const supportsMutation = true
 
 export const appendChild = noop
 
-export const appendChildToContainer = append
+export const appendChildToContainer = noop
 
 export const getPublicInstance = instance => {
   return instance

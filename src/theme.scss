@@ -3,6 +3,7 @@ $textColor: #DCDDDE;
 $fontFamily: Rubik, sans-serif;
 $monospaceFamily: FiraCode, Source Code Pro, IBM Plex Mono, monospace;
 $primaryColor: hsl(180, 75%, 65%);
+$errorColor: hsl(354, 88%, 62%);
 %contrastText {
   color: white;
   text-shadow: 0 0 2px black, 0 0 5px #00000077;

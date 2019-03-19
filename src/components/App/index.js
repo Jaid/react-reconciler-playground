@@ -5,33 +5,51 @@ import ReactSplitterLayout from "react-splitter-layout"
 import {connect} from "react-redux"
 import Sidebar from "components/Sidebar"
 import BabelCodeEditor from "components/BabelCodeEditor"
+import Output from "components/Output"
+import reconciler from "react-reconciler"
+import lodash from "lodash"
+
+import defaultHostConfig from "!raw-loader!./defaults/hostConfig"
+
+import defaultReactComponent from "!raw-loader!./defaults/reactComponent"
+
+import defaultRenderFunction from "!raw-loader!./defaults/renderFunction"
 
 import "./reactSplitterLayout.scss"
 import css from "./style.scss"
-
-import defaultHostConfig from "!raw-loader!./defaultHostConfig"
 
 class App extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    hostConfigCode: PropTypes.string.isRequired,
+    hostConfig: PropTypes.object,
+    TestComponent: PropTypes.func,
   }
 
   render() {
     const minSizePercent = 10
+    const sharedScope = {
+      lodash,
+      React,
+      console,
+    }
     return <div className={classnames(css.container, this.props.className)}>
-      <ReactSplitterLayout primaryIndex={1} primaryMinSize={200} secondaryInitialSize={150}>
-        <Sidebar/>
-        <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={30}>
-          <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-            <BabelCodeEditor name="hostConfig.js" value={this.props.hostConfigCode} defaultValue={defaultHostConfig}/>
-            <div>2: rendering</div>
-          </ReactSplitterLayout>
-          <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-            <div>Output</div>
-            <div>Output Info</div>
-          </ReactSplitterLayout>
+      <Sidebar/>
+      <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
+        <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
+          <BabelCodeEditor id="hostConfig" initialValue={defaultHostConfig} scope={sharedScope}/>
+          <BabelCodeEditor id="reactComponent" name="ReactComponent.jsx" initialValue={defaultReactComponent} scope={sharedScope}/>
+        </ReactSplitterLayout>
+        <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
+          {(this.props.hostConfig && this.props.TestComponent) ? <BabelCodeEditor id="renderFunction"
+            initialValue={defaultRenderFunction}
+            scope={{
+              ...sharedScope,
+              reconciler,
+              hostConfig: this.props.hostConfig,
+              TestComponent: this.props.TestComponent,
+            }}/> : "Waiting for exports..."}
+          <Output/>
         </ReactSplitterLayout>
       </ReactSplitterLayout>
     </div>
@@ -41,7 +59,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    hostConfigCode: state.hostConfigCode,
+    hostConfig: state.babelCodeEditor.hostConfig?.exports,
+    TestComponent: state.babelCodeEditor.reactComponent?.exports?.TestComponent,
   }
 }
 

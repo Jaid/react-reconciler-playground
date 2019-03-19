@@ -6,7 +6,9 @@ export default configureWebapp({
   publishimo: {fetchGithub: true},
   title: "react-reconciler Playground",
   configOutput: true,
-  includeMonacoEditor: true,
+  includeMonacoEditor: {
+    languages: ["javascript", "plaintext"],
+  },
   extra: {
     resolve: {
       alias: {

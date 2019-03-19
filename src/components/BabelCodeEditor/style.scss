@@ -1,15 +1,17 @@
+@import "theme";
+
 .container {
   height: 100%;
   overflow: hidden;
 }
 
-.codeEditor {
-  height: 100%;
-}
-
 .tabIcon {
   vertical-align: middle;
   margin-right: 0.4em;
+}
+
+.errorTabIcon {
+  color: $errorColor;
 }
 
 .tabTitle {
