@@ -9,33 +9,44 @@ export default (state, action) => {
       if (draft[action.id]) {
         draft[action.id].value = action.code
       } else {
-        draft[action.id] = {value: action.code}
+        draft[action.id] = {
+          value: action.code,
+          job: "transform",
+        }
       }
     })
   }
   if (action.type === "@@babelCodeEditor/transformedCode") {
     return immer(state, draft => {
-      draft[action.id].transformedValue = action.code
-      delete draft[action.id].babelError
+      const editor = draft[action.id]
+      editor.transformedValue = action.code
+      editor.job = "run"
+      delete editor.babelError
     })
   }
   if (action.type === "@@babelCodeEditor/babelError") {
     return immer(state, draft => {
-      draft[action.id].babelError = action.message
-      delete draft[action.id].transformedValue
-      delete draft[action.id].exports
+      const editor = draft[action.id]
+      editor.babelError = action.message
+      delete editor.job
+      delete editor.transformedValue
+      delete editor.exports
     })
   }
   if (action.type === "@@babelCodeEditor/run") {
     return immer(state, draft => {
-      draft[action.id].exports = action.sandbox.exports
-      delete draft[action.id].runError
+      const editor = draft[action.id]
+      editor.exports = action.sandbox.exports
+      delete editor.job
+      delete editor.runError
     })
   }
   if (action.type === "@@babelCodeEditor/runError") {
     return immer(state, draft => {
-      draft[action.id].runError = action.message
-      delete draft[action.id].exports
+      const editor = draft[action.id]
+      editor.runError = action.message
+      delete editor.job
+      delete editor.exports
     })
   }
   return state

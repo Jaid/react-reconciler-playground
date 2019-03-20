@@ -1,3 +1,5 @@
+$lineWidth: 1px;
+
 @import "theme";
 
 :global {
@@ -5,26 +7,21 @@
     -webkit-tap-highlight-color: transparent;
     margin: 0;
     &__tab-list {
-      border-bottom: 1px solid #aaa;
       padding: 0;
-      margin:0;
+      margin: 0;
+      white-space: nowrap;
+      border-bottom: $lineWidth solid $layoutColor;
     }
     &__tab {
-      color: darken($textColor, 30);
       display: inline-block;
-      border: 1px solid transparent;
-      border-bottom: none;
-      position: relative;
       list-style: none;
-      padding: 2px 12px;
+      color: darken($textColor, 30);
+      padding: 2px 8px;
+      text-align: center;
       cursor: pointer;
       &--selected {
-        background: $bodyBackground;
-        border-color: #aaa;
+        border-bottom-color: transparent;
         color: $textColor;
-        &:first-child {
-          border-left-color: transparent;
-        }
       }
       &--disabled {
         cursor: default;
@@ -32,7 +29,6 @@
     }
     &__tab-panel {
       display: none;
-      height: 100%;
       &--selected {
         display: block;
       }

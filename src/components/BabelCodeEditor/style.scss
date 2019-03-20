@@ -1,5 +1,4 @@
 @import "theme";
-
 .container {
   height: 100%;
   overflow: hidden;
@@ -8,6 +7,31 @@
 .tabIcon {
   vertical-align: middle;
   margin-right: 0.4em;
+  text-shadow: 0 0 2px lighten($primaryColor, 0.5), 0 0 5px lighten($primaryColor, 0.5), 0 0 10px lighten($primaryColor, 0.5);
+}
+
+.loadingIcon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+}
+
+.inspectorPanel {
+  padding: 0.5em 0.5em 5em 0.5em;
+  height: inherit;
+}
+
+@keyframes flash {
+  from {
+    color: white;
+  }
+  to {
+    color: darken($textColor, 30);
+  }
+}
+
+.flashing {
+  animation: flash 1s ease;
 }
 
 .errorTabIcon {

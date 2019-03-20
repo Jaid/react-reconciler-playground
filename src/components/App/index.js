@@ -32,27 +32,20 @@ class App extends React.Component {
       lodash,
       React,
       console,
+      reconciler,
     }
-    return <div className={classnames(css.container, this.props.className)}>
-      <Sidebar/>
-      <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-        <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-          <BabelCodeEditor id="hostConfig" initialValue={defaultHostConfig} scope={sharedScope}/>
-          <BabelCodeEditor id="reactComponent" name="ReactComponent.jsx" initialValue={defaultReactComponent} scope={sharedScope}/>
-        </ReactSplitterLayout>
-        <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
-          {(this.props.hostConfig && this.props.TestComponent) ? <BabelCodeEditor id="renderFunction"
-            initialValue={defaultRenderFunction}
-            scope={{
-              ...sharedScope,
-              reconciler,
-              hostConfig: this.props.hostConfig,
-              TestComponent: this.props.TestComponent,
-            }}/> : "Waiting for exports..."}
-          <Output/>
-        </ReactSplitterLayout>
+    return <ReactSplitterLayout percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={40}>
+      <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
+        <BabelCodeEditor id="hostConfig" initialValue={defaultHostConfig} scope={sharedScope}/>
+        <BabelCodeEditor id="reactComponent" name="ReactComponent.jsx" initialValue={defaultReactComponent} scope={sharedScope}/>
       </ReactSplitterLayout>
-    </div>
+      <ReactSplitterLayout vertical percentage primaryMinSize={minSizePercent} secondaryMinSize={minSizePercent} secondaryInitialSize={50}>
+        {(this.props.hostConfig && this.props.TestComponent) ? <BabelCodeEditor id="renderFunction"
+          initialValue={defaultRenderFunction}
+          scope={sharedScope}/> : "Waiting for exports..."}
+        <Output/>
+      </ReactSplitterLayout>
+    </ReactSplitterLayout>
   }
 
 }

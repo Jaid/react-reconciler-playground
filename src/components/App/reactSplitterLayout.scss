@@ -22,11 +22,10 @@
     width: 4px;
     height: 100%;
     cursor: col-resize;
-    background-color: #ccc;
+    background-color: $layoutColor;
   }
   .splitter-layout .layout-splitter:hover {
-    background-color: #ccc;
-    box-shadow: 0 0 3px 3px transparentize($primaryColor, 0.75);
+    background-color: $layoutColor;
   }
   .splitter-layout.layout-changing {
     cursor: col-resize;
