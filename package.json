@@ -63,5 +63,9 @@
     "prepareActionJest": "npm run build:prod"
   },
   "description": "Node module react-reconciler-playground (:construction: Under construction, usage is not recommended!)",
-  "funding": "https://github.com/sponsors/jaid"
+  "funding": "https://github.com/sponsors/jaid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaid/react-reconciler-playground"
+  }
 }
