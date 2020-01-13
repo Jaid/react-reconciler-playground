@@ -67,5 +67,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jaid/react-reconciler-playground"
-  }
+  },
+  "name": "react-reconciler-playground"
 }
